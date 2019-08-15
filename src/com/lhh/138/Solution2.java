@@ -1,4 +1,4 @@
-//import java.util.HashMap;
+import java.util.HashMap;
 
 /*
  * @lc app=leetcode.cn id=138 lang=java
@@ -21,21 +21,21 @@ class Node {
     }
 };
 */
-// class Node {
-//     public int val;
-//     public Node next;
-//     public Node random;
+class Node {
+    public int val;
+    public Node next;
+    public Node random;
 
-//     public Node() {
+    public Node() {
 
-//     }
+    }
 
-//     public Node(int _val, Node _next, Node _random) {
-//         this.val = _val;
-//         this.next = _next;
-//         this.random = _random;
-//     }
-// }
+    public Node(int _val, Node _next, Node _random) {
+        this.val = _val;
+        this.next = _next;
+        this.random = _random;
+    }
+}
 //迭代 复杂度均为O(N)
 class Solution {
     HashMap<Node, Node> visited = new HashMap<Node, Node>();
@@ -55,7 +55,7 @@ class Solution {
             return null;
         }
         Node oldNode = head;
-        Node newNode = new Node(head.val);
+        Node newNode = new Node(head.val, null, null);
         this.visited.put(oldNode, newNode);
         while(oldNode != null){
             newNode.next = this.getCloneNode(oldNode.next);
